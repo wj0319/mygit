@@ -1,5 +1,6 @@
 from ArrayList import ArrayList
 import pickle
+import re
 
 # 배열구조의 리스트를 이용한 라인 편집기 프로그램
 list = ArrayList(1000)
@@ -49,22 +50,22 @@ while True :
 
     elif command == 'm' :
         #공백문자로 단어 구분
-        str = input(" 입력할 내용 : ")
-        sentence = str.split(' ')
         dic = {}
-        for word in sentence:
-            #단어가 알파벳 또는 숫자로만 구성된 경우
-            if word.isalnum():
+        cleaned_sentence = re.sub(r'[^\w\s가-힣]','',input('문장입력 : '))
+        m_list = cleaned_sentence.split()
+        
+        for word in m_list:
                  #딕셔너리에 이미 있는 단어일 경우
-                if word in dic:
-                    dic[word] += 1
+            if word in dic:
+                dic[word] += 1
                 #딕셔너리에 없는 단어일 경우
-                else:
-                    dic[word] = 1
+            else:
+                dic[word] = 1
             
         for word in dic:
             print('',word,':', dic[word])
         
         #dic.txt에 저장
-        with open('dic.txt','wb') as f:
-            pickle.dump(dic, f)
+        with open('dic.txt','w') as f:
+            for key, value in dic.items():
+                f.write(f'{key} : {value}\n')
