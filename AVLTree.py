@@ -110,11 +110,15 @@ def levelorder(root) :
 
 
 
+
 # 코드 9.20: AVL 트리 테스트 프로그램
+
 if __name__ == "__main__":
     node = [7,8,9,2,1,5,3,6,4]
-    # node = [0,1,2,3,4,5,6,7,8,9]
+        # node = [0,1,2,3,4,5,6,7,8,9]
 
+        
+        
     print('-------------- 트리 생성 --------------')
     root = None
     for i in node :
@@ -122,18 +126,29 @@ if __name__ == "__main__":
         if root == None :
             root = n
         else :
-           root = insert_avl(root, n)
+            root = insert_avl(root, n)
 
         print("AVL(%d): "%i, end='')
         levelorder(root)
         print()
+    print('-'*39)
 
-    print('-'*39)
-    print('현재의 트리 : ', end='')
-    levelorder(root)
-    print()
-    root = delete_avl(root)
-    print('최소값 삭제 후 트리 : ', end='')
-    levelorder(root)
-    print()
-    print('-'*39)
+    while(1):
+        num = input('1. 최소값 삭제연산    2. 중단 : ')
+        if num == '1':
+            print('-'*39)
+            print()
+            print('현재의 트리 : ', end='')
+            levelorder(root)
+            print()
+            root = delete_avl(root)
+            print('최소값 삭제 후 트리 : ', end='')
+            levelorder(root)
+            print()
+            print()
+            print('-'*39)
+            if root == None:
+                 print('더 이상 남은 노드가 없습니다.')
+                 break
+        else:
+             break
