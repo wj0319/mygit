@@ -150,5 +150,11 @@ if __name__ == "__main__":
             if root == None:
                  print('더 이상 남은 노드가 없습니다.')
                  break
-        else:
+        elif num == '2':
              break
+        
+        else :
+             print()
+             print('Wrong number')
+             print()
+             continue
