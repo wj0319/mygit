@@ -29,9 +29,11 @@ def postorder(n) :
         postorder(n.right)
         print(n.data, end=' ')
 
+
+
 def display(self, msg = 'BTSMap :', order=0):
       while True :
-        order = int(input("[순회 방식 선택] 1.Inorder  2.Preorder  3.Postorder => "))
+        order = int(input("[순회 방식 선택] 1.Inorder  2.Preorder  3.Postorder  4. stop => "))
 
         if order == 1:
             print('\n  In-Order : ', end='')
@@ -47,6 +49,9 @@ def display(self, msg = 'BTSMap :', order=0):
             print('\n Post-Order : ', end='')
             postorder(root)
             print()
+
+        elif order == 4:
+            exit()
 
         else:
             print("\n  Wrong Number")
@@ -65,5 +70,6 @@ if __name__ == "__main__":
     f = TNode('F', None, None)
     c = TNode('C', f, None)
     root = TNode('A', b, c)
-
-    display(root)
+    
+    while True:
+        display(root)
