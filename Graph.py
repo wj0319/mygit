@@ -1,4 +1,4 @@
-# 코드 10.3: 너비 우선 탐색(인접 리스트 방식)
+# 너비 우선 탐색(인접 리스트 방식)
 from queue import Queue                 # queue 모듈의 Queue 사용
 def BFS_AL(vtx, aList, s):
     n = len(vtx)                        # 그래프의 정점 수
